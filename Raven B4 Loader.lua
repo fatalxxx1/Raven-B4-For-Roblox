@@ -153,7 +153,6 @@ function RavenB4:Initialize()
     -- end
 
     self:SetupDirectories()
-    self:DownloadFonts()
 
     if self:DetectGame() then
         print("see what could happen here")
