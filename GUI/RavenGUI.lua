@@ -1762,14 +1762,14 @@ Credits.TextSize = 14.000
 Credits.TextXAlignment = Enum.TextXAlignment.Right
 
 --Tabs
-shared:createnotification("Press \"V\" or the Raven Icon to open the GUI!",3,"Raven B4 Loaded")
+shared:createnotification("Say HI",3,"Raven B4 Loaded")
 
 -- shared.RavenB4TabName1 = shared.RavenB4TabName1 or "combat" -- litteraly only made this for the ps99 version, more will come sooner or later tbh
-Combat = lib:CreateWindow(shared.RavenB4TabName1,UDim2.new(0.03, 0, 0.1, 0),"15047268885")
-Legit = lib:CreateWindow("blatant",UDim2.new(0.23, 0, 0.1, 0),"15090672783")
-Render = lib:CreateWindow("render",UDim2.new(0.62, 0, 0.1, 0),"15090679835")
-Client = lib:CreateWindow("client",UDim2.new(0.435, 0, 0.4, 0),"15090649788")
-Exploit = lib:CreateWindow("exploits",UDim2.new(0.82, 0, 0.8, 0),"15090649788")
+
+Legit = lib:CreateWindow("legit",UDim2.new(0.23, 0, 0.1, 0),"")
+Render = lib:CreateWindow("render",UDim2.new(0.62, 0, 0.1, 0),"")
+Client = lib:CreateWindow("client",UDim2.new(0.435, 0, 0.4, 0),"")
+
 GUIToggle = Client:CreateToggle({
     Name = "GUI",
     Animation = false,
