@@ -173,7 +173,7 @@ spawn(function()
             if shared.devtesting then 
                 queue_on_teleport('loadstring(readfile("Raven-B4-For-Roblox/Raven B4 Loader.lua"))()')
             else
-                queue_on_teleport('loadstring(game:HttpGet("https://raw.githubusercontent.com/Near-B4/Raven-B4-For-Roblox/refs/heads/main/Raven%20B4%20Loader.lua"))()')
+                queue_on_teleport('loadstring(game:HttpGet("https://raw.githubusercontent.com/fatalxxx1/Raven-B4-For-Roblox/refs/heads/main/Raven%20B4%20Loader.lua"))()')
             end
         end
     end)
