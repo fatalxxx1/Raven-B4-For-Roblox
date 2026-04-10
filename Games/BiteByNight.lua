@@ -4,4 +4,4 @@
 local Players = game:GetService('Players')
 local LocalPlayer = Players.LocalPlayer
 
-local loop = Loopmanager().new
+local loop = LoopManager().new
