@@ -30,13 +30,13 @@ function RavenB4.new()
     return self
 end
 
-function RavenB4:CheckExecutorSupport()
-    if not (writefile and readfile and makefolder and isfolder) then
-        Players.LocalPlayer:Kick("Executor is not supported, please use another executor for Raven B4!")
-        return false
-    end
-    return true
-end
+-- function RavenB4:CheckExecutorSupport()
+--     if not (writefile and readfile and makefolder and isfolder) then
+--         Players.LocalPlayer:Kick("Executor is not supported, please use another executor for Raven B4!")
+--         return false
+--     end
+--     return true
+-- end
 
 function RavenB4:SetupDirectories()
     if not isfolder(self.FontPath) then
@@ -147,9 +147,9 @@ function RavenB4:Initialize()
         error("RavenB4 is already injected!")
     end
 
-    if not self:CheckExecutorSupport() then
-        return
-    end
+    -- if not self:CheckExecutorSupport() then
+    --     return
+    -- end
 
     self:SetupDirectories()
     self:DownloadFonts()
