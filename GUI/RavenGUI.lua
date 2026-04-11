@@ -588,6 +588,7 @@ spawn(function()
     shared.TargetName.BorderSizePixel = 0
     shared.TargetName.Position = UDim2.new(0.165, 0, 0.0799998939, 0)
     shared.TargetName.Size = UDim2.new(0.432998955, 0, 0.449999988, 0)
+    shared.TargetName.FontFace = Font.new(getcustomasset("RavenB4/MCReg.json"))
     shared.TargetName.TextColor3 = Color3.fromRGB(255, 255, 255)
     shared.TargetName.TextSize = textsize
     shared.TargetName.TextWrapped = true
@@ -601,7 +602,7 @@ spawn(function()
     shared.TargetColor.BorderSizePixel = 0
     shared.TargetColor.Position = UDim2.new(0.0432427935, 0, 0.0800000802, 0)
     shared.TargetColor.Size = UDim2.new(0.083, 0, 0.449999988, 0)
-
+    shared.TargetColor.FontFace = Font.new(getcustomasset("RavenB4/MCBold.json"))
     shared.TargetColor.Text = "W"
     shared.TargetColor.TextColor3 = Color3.fromRGB(255, 255, 255)
     shared.TargetColor.TextSize = textsize
@@ -615,7 +616,7 @@ spawn(function()
     shared.TargetHealth.BorderSizePixel = 0
     shared.TargetHealth.Position = UDim2.new(0.660000026, 0, 0.0799999982, 0)
     shared.TargetHealth.Size = UDim2.new(0.193000004, 0, 0.449999988, 0)
-
+    shared.TargetHealth.FontFace = Font.new(getcustomasset("RavenB4/MCReg.json"))
     shared.TargetHealth.Text = "100"
     shared.TargetHealth.TextColor3 = Color3.fromRGB(77, 255, 1)
     shared.TargetHealth.TextSize = textsize
@@ -629,7 +630,7 @@ spawn(function()
     shared.TargetState.BorderSizePixel = 0
     shared.TargetState.Position = UDim2.new(0.839999974, 0, 0.0799999982, 0)
     shared.TargetState.Size = UDim2.new(0.118000001, 0, 0.449999988, 0)
-  
+    shared.TargetState.FontFace = Font.new(getcustomasset("RavenB4/MCReg.json"))
     shared.TargetState.Text = "W"
     shared.TargetState.TextColor3 = Color3.fromRGB(34, 255, 0)
     shared.TargetState.TextSize = textsize
@@ -716,6 +717,7 @@ function lib:CreateWindow(text, Position)
     TabName.BorderColor3 = Color3.fromRGB(0, 0, 0)
     TabName.BorderSizePixel = 0
     TabName.Size = UDim2.new(1, 0,0, sizingtable.TabFrame)
+    TabName.FontFace = Font.new(getcustomasset("RavenB4/MCReg.json"))
     TabName.Text = text
     TabName.TextColor3 = Color3.fromRGB(255, 255, 255)
     TabName.TextSize = sizingtable.TabText
@@ -734,7 +736,7 @@ function lib:CreateWindow(text, Position)
     PlusMinusButton.BorderSizePixel = 0
     PlusMinusButton.Position = UDim2.new(0.799999988, 0, 0, -9)
     PlusMinusButton.Size = UDim2.new(0, sizingtable.PlusMinuesButtonSize, 0, sizingtable.PlusMinuesButtonSizeSecond)
-
+    PlusMinusButton.FontFace = Font.new(getcustomasset("RavenB4/MCReg.json"))
     PlusMinusButton.Text = "-"
     PlusMinusButton.TextColor3 = Color3.fromRGB(235, 39, 39)
     PlusMinusButton.TextSize = sizingtable.PlusMinuesButtonText
@@ -870,7 +872,7 @@ function lib:CreateWindow(text, Position)
         MainButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
         MainButton.BorderSizePixel = 0
         MainButton.Size = UDim2.new(1, 0, 0, sizingtable.MainButton)
-
+        MainButton.FontFace = Font.new(getcustomasset("RavenB4/MCReg.json"))
         MainButton.Text = options.Name
         MainButton.TextColor3 = Color3.fromRGB(255, 255, 255)
         MainButton.TextSize = sizingtable.MainButtonText
@@ -909,7 +911,7 @@ function lib:CreateWindow(text, Position)
         BindText.BorderColor3 = Color3.fromRGB(0, 0, 0)
         BindText.BorderSizePixel = 0
         BindText.Size = UDim2.new(1, 0, 1,0)
-
+        BindText.FontFace = Font.new(getcustomasset("RavenB4/MCReg.json"))
         BindText.Text = "Current bind:"
         BindText.TextColor3 = Color3.fromRGB(10, 213, 236)
         BindText.TextSize = sizingtable.BindText
@@ -926,7 +928,7 @@ function lib:CreateWindow(text, Position)
         TextButton.BorderSizePixel = 0
         TextButton.Position = UDim2.new(sizingtable.BindButtonPOS, 0, 0, 0)
         TextButton.Size = UDim2.new(sizingtable.BindButtonSize, 0, 1,0)
-  
+        TextButton.FontFace = Font.new(getcustomasset("RavenB4/MCReg.json"))
         TextButton.Text = "\'NONE\'"
         TextButton.TextColor3 = Color3.fromRGB(255, 248, 34)
         TextButton.TextSize = sizingtable.BindText
@@ -942,14 +944,14 @@ function lib:CreateWindow(text, Position)
                 TextLabel.BorderSizePixel = 0
                 TextLabel.Position = UDim2.new(1, 0, 0, 0)
                 TextLabel.BackgroundTransparency = 1
-    
+                TextLabel.FontFace = Font.new(getcustomasset("RavenB4/MCReg.json"))
                 TextLabel.TextSize = 21
                 TextLabel.Text = Name.." "
                 TextLabel.TextColor3 = Color3.new(255,255,255)
                 TextLabel.Size = UDim2.new(0,0,0,0)
                 local params = Instance.new("GetTextBoundsParams")
                 params.Text = Name.." "
-    
+                params.Font = Font.new(getcustomasset("RavenB4/MCReg.json"))
                 params.Size = 25
                 local size = game:GetService("TextService"):GetTextBoundsAsync(params)
                 TextLabel.TextXAlignment = "Right"
@@ -962,7 +964,7 @@ function lib:CreateWindow(text, Position)
                 TextLabel2.BorderSizePixel = 0
                 TextLabel2.Position = UDim2.new(0, 0, 0, 0)
                 TextLabel2.BackgroundTransparency = 1
-         
+                TextLabel2.FontFace = Font.new(getcustomasset("RavenB4/MCReg.json"))
                 TextLabel2.TextSize = 21
                 TextLabel2.Text = Name.." "
                 TextLabel2.TextColor3 = Color3.new(255,255,255)
@@ -1139,7 +1141,7 @@ function lib:CreateWindow(text, Position)
             TextButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
             TextButton.BorderSizePixel = 0
             TextButton.Size = UDim2.new(1, 0, 0, 25)
-      
+            TextButton.FontFace = Font.new(getcustomasset("RavenB4/MCReg.json"))
             TextButton.TextColor3 = Color3.fromRGB(255, 255, 255)
             TextButton.TextSize = 14.000
             TextButton.TextXAlignment = Enum.TextXAlignment.Left
@@ -1201,7 +1203,7 @@ function lib:CreateWindow(text, Position)
                         local item2 = FindFirstDescendant(Array,OptionsName().."2")
                         local newitemname = options.DefaultOption .. " "
                         if item ~= nil and options.SecondArrayitem == true then
-                      
+                            params.Font = Font.new(getcustomasset("RavenB4/MCReg.json"))
                             params.Size = 18
                             params.Text = OptionsName().." "
                             local size = game:GetService("TextService"):GetTextBoundsAsync(params)
@@ -1229,7 +1231,7 @@ function lib:CreateWindow(text, Position)
             Info.BorderColor3 = Color3.fromRGB(0, 0, 0)
             Info.BorderSizePixel = 0
             Info.Size = UDim2.new(1, 0, 0, sizingtable.InfoSize)
-       
+            Info.FontFace = Font.new(getcustomasset("RavenB4/MCReg.json"))
             Info.Text = text
             Info.TextColor3 = Color3.fromRGB(0, 174, 255)
             Info.TextSize = sizingtable.InfoText
@@ -1293,7 +1295,7 @@ function lib:CreateWindow(text, Position)
             SliderButton.BorderSizePixel = 0
             SliderButton.Position = UDim2.new(0.0500000007, 0, 0.600000024, 0)
             SliderButton.Size = UDim2.new(0.899999976, 0, 0.300000003, 0)
-    
+            SliderButton.FontFace = Font.new(getcustomasset("RavenB4/MCReg.json"))
             SliderButton.Text = ""
             SliderButton.TextColor3 = Color3.fromRGB(0, 0, 0)
             SliderButton.TextSize = sizingtable.SliderText
@@ -1319,7 +1321,7 @@ function lib:CreateWindow(text, Position)
             SliderName.BorderColor3 = Color3.fromRGB(0, 0, 0)
             SliderName.BorderSizePixel = 0
             SliderName.Size = UDim2.new(0.486000001, 0, 0, 15)
-          
+            SliderName.FontFace = Font.new(getcustomasset("RavenB4/MCReg.json"))
             SliderName.TextColor3 = Color3.fromRGB(255, 255, 255)
             SliderName.TextSize = sizingtable.SliderValueText
             SliderName.TextWrapped = true
@@ -1338,7 +1340,7 @@ function lib:CreateWindow(text, Position)
             SliderValue.BorderSizePixel = 0
             SliderValue.Position = UDim2.new(0.571428537, 0, 0, 0)
             SliderValue.Size = UDim2.new(0.42900002, 0, 0, 15)
-   
+            SliderValue.FontFace = Font.new(getcustomasset("RavenB4/MCReg.json"))
             SliderValue.Text = options.Default
             SliderValue.TextColor3 = Color3.fromRGB(255, 255, 255)
             SliderValue.TextSize = sizingtable.SliderValueText
@@ -1460,7 +1462,7 @@ function lib:CreateWindow(text, Position)
             MiniButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
             MiniButton.BorderSizePixel = 0
             MiniButton.Size = UDim2.new(1, 0, 0, sizingtable.Minibutton)
-
+            MiniButton.FontFace = Font.new(getcustomasset("RavenB4/MCReg.json"))
             MiniButton.Text = "[-]"
             MiniButton.TextColor3 = Color3.fromRGB(255, 255, 255)
             MiniButton.TextSize = sizingtable.MinibuttonText
@@ -1477,7 +1479,7 @@ function lib:CreateWindow(text, Position)
             MiniButtonText.BorderSizePixel = 0
             MiniButtonText.Size = UDim2.new(1, 0, 1, 0)
             MiniButtonText.Font = Enum.Font.Fantasy
-         
+            MiniButtonText.FontFace = Font.new(getcustomasset("RavenB4/MCReg.json"))
             MiniButtonText.TextColor3 = Color3.fromRGB(255, 255, 255)
             MiniButtonText.TextSize = 14.000
             MiniButtonText.TextXAlignment = Enum.TextXAlignment.Left
@@ -1616,7 +1618,17 @@ RavenTextB4.BorderSizePixel = 0
 RavenTextB4.Position = UDim2.new(1, 0, textboxsize*5, 0)
 RavenTextB4.Size = UDim2.new(1, 0, 0.25, 0)
 
-
+B4Letter.Name = "B4 Letter"
+B4Letter.Parent = RavenTextB4
+B4Letter.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+B4Letter.BackgroundTransparency = 1.000
+B4Letter.BorderColor3 = Color3.fromRGB(0, 0, 0)
+B4Letter.BorderSizePixel = 0
+B4Letter.Size = UDim2.new(1, 0, 1, 0)
+B4Letter.FontFace = Font.new(getcustomasset("RavenB4/MCReg.json"))
+B4Letter.Text = "B4"
+B4Letter.TextColor3 = Color3.fromRGB(255,255,255)
+B4Letter.TextSize = textsize
 
 RavenText.Name = "RavenText"
 RavenText.Parent = RavenB4WaterMark
@@ -1634,7 +1646,7 @@ RLetter.BackgroundTransparency = 1.000
 RLetter.BorderColor3 = Color3.fromRGB(0, 0, 0)
 RLetter.BorderSizePixel = 0
 RLetter.Size = UDim2.new(1, 0,textboxsize , 0)
-
+RLetter.FontFace = Font.new(getcustomasset("RavenB4/MCReg.json"))
 RLetter.Text = "r"
 RLetter.TextColor3 = Color3.fromRGB(255,255,255)
 RLetter.TextSize = textsize
@@ -1647,7 +1659,7 @@ ALetter.BorderColor3 = Color3.fromRGB(0, 0, 0)
 ALetter.BorderSizePixel = 0
 ALetter.Position = UDim2.new(0, 0, textboxsize, 0)
 ALetter.Size = UDim2.new(1, 0, textboxsize, 0)
-
+ALetter.FontFace = Font.new(getcustomasset("RavenB4/MCReg.json"))
 ALetter.Text = "a"
 ALetter.TextColor3 = Color3.fromRGB(255,255,255)
 ALetter.TextSize = textsize
@@ -1660,6 +1672,7 @@ VLetter.BorderColor3 = Color3.fromRGB(0, 0, 0)
 VLetter.BorderSizePixel = 0
 VLetter.Position = UDim2.new(0, 0, textboxsize*2, 0)
 VLetter.Size = UDim2.new(1, 0, textboxsize, 0)
+VLetter.FontFace = Font.new(getcustomasset("RavenB4/MCReg.json"))
 VLetter.Text = "v"
 VLetter.TextColor3 = Color3.fromRGB(255,255,255)
 VLetter.TextSize = textsize
@@ -1672,7 +1685,7 @@ ELetter.BorderColor3 = Color3.fromRGB(0, 0, 0)
 ELetter.BorderSizePixel = 0
 ELetter.Position = UDim2.new(0, 0, textboxsize*3, 0)
 ELetter.Size = UDim2.new(1, 0, textboxsize, 0)
-
+ELetter.FontFace = Font.new(getcustomasset("RavenB4/MCReg.json"))
 ELetter.Text = "e"
 ELetter.TextColor3 = Color3.fromRGB(255,255,255)
 ELetter.TextSize = textsize
@@ -1685,7 +1698,7 @@ NLetter.BorderColor3 = Color3.fromRGB(0, 0, 0)
 NLetter.BorderSizePixel = 0
 NLetter.Position = UDim2.new(0, 0, textboxsize*4, 0)
 NLetter.Size = UDim2.new(1, 0, textboxsize, 0)
-
+NLetter.FontFace = Font.new(getcustomasset("RavenB4/MCReg.json"))
 NLetter.Text = "n"
 NLetter.TextColor3 = Color3.fromRGB(255,255,255)
 NLetter.TextSize = textsize
@@ -1762,14 +1775,15 @@ Credits.TextSize = 14.000
 Credits.TextXAlignment = Enum.TextXAlignment.Right
 
 --Tabs
-shared:createnotification("Say HI",3,"Raven B4 Loaded")
+shared:createnotification("Press \"V\" or the Raven Icon to open the GUI!",3,"Raven B4 Loaded")
 
--- shared.RavenB4TabName1 = shared.RavenB4TabName1 or "combat" -- litteraly only made this for the ps99 version, more will come sooner or later tbh
-
-Legit = lib:CreateWindow("legit",UDim2.new(0.23, 0, 0.1, 0),"")
-Render = lib:CreateWindow("render",UDim2.new(0.62, 0, 0.1, 0),"")
-Client = lib:CreateWindow("client",UDim2.new(0.435, 0, 0.4, 0),"")
-
+shared.RavenB4TabName1 = shared.RavenB4TabName1 or "combat" -- litteraly only made this for the ps99 version, more will come sooner or later tbh
+Combat = lib:CreateWindow(shared.RavenB4TabName1,UDim2.new(0.03, 0, 0.1, 0),"15047268885")
+Blatant = lib:CreateWindow("blatant",UDim2.new(0.23, 0, 0.1, 0),"15090672783")
+Render = lib:CreateWindow("render",UDim2.new(0.62, 0, 0.1, 0),"15090679835")
+Utility = lib:CreateWindow("utility",UDim2.new(0.82, 0, 0.1, 0),"15090688384")
+Client = lib:CreateWindow("client",UDim2.new(0.435, 0, 0.4, 0),"15090649788")
+Exploit = lib:CreateWindow("exploits",UDim2.new(0.82, 0, 0.8, 0),"15090649788")
 GUIToggle = Client:CreateToggle({
     Name = "GUI",
     Animation = false,
@@ -1919,8 +1933,11 @@ local raventag = Client:CreateToggle({
 			return properties
 		end
 end})
-
-
+local bedwarsids = {6872265039,6872274481,8444591321,8560631822}
+local inbedwars = false
+if table.find(bedwarsids,game.PlaceId) then
+    inbedwars = true
+end
 local TweenService = game:GetService("TweenService")
 function IsAlive(plr)
     plr = plr or LocalPlayer
@@ -1997,6 +2014,28 @@ Client:CreateToggle({
             end
         until not RavenCape
 end})
-
+local CapeAngle = nil
+Client:CreateToggle({
+    Name = "AutoToxic",
+    Callback = function(Callback) 
+        RavenCape = Callback
+        if RavenCape and IsAlive(LocalPlayer)then
+            CreateCape()
+        else
+            if LocalPlayer.Character:FindFirstChild("RavenCape") then LocalPlayer.Character:FindFirstChild("RavenCape"):Destroy() end
+        end
+        repeat task.wait(0.5)
+            if IsAlive(LocalPlayer) then
+                if LocalPlayer.Character.Humanoid.MoveDirection.Magnitude > 0 and LocalPlayer.Character:FindFirstChild("RavenCape") and CapeAngle then
+                    CapeAngle = (LocalPlayer.Character.HumanoidRootPart.Velocity.magnitude < 45 and (-1 *(LocalPlayer.Character.HumanoidRootPart.Velocity.magnitude / 30)) or -1.5)
+                else
+                    CapeAngle = -0.2
+                end
+                if LocalPlayer.Character:FindFirstChild("RavenCape") then
+                    TweenService:Create(LocalPlayer.Character:FindFirstChild("RavenCape"):FindFirstChild("Motor"), TweenInfo.new(0.15, Enum.EasingStyle.Linear, Enum.EasingDirection.In), {CurrentAngle = CapeAngle}):Play()
+                end
+            end
+        until not RavenCape
+end})
 
 return lib
