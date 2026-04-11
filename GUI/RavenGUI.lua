@@ -904,7 +904,7 @@ function lib:CreateWindow(text, Position)
         MenuButton.BorderSizePixel = 0
         MenuButton.Position = UDim2.new(1, -40, 0.5, -12)
         MenuButton.Size = UDim2.new(0, 30, 0, 24)
-        MenuButton.Text = "⋮"
+        MenuButton.Text = "..."
         MenuButton.TextColor3 = Color3.fromRGB(200, 200, 200)
         MenuButton.TextSize = isMobile and 20 or 18
         MenuButton.TextWrapped = true
