@@ -240,14 +240,16 @@ end
 ScreenGUIFrame.Name = "ScreenGUIFrame"
 ScreenGUIFrame.Parent = ScreenGui
 ScreenGUIFrame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-ScreenGUIFrame.BackgroundTransparency = 1.000
+ScreenGUIFrame.BackgroundTransparency = 1
 ScreenGUIFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
 ScreenGUIFrame.BorderSizePixel = 0
 ScreenGUIFrame.Position = UDim2.new(0, 0, 0, 0)
 ScreenGUIFrame.Size = UDim2.new(0, 0, 0, 0)
 
+shared.ScreenGui2 = shared.ScreenGui2 or Instance.new("ScreenGui")
+
 shared.ScreenGui2.Name = "ScreenGui2"
-shared.ScreenGui2.Parent = game:WaitForChild("CoreGui")
+shared.ScreenGui2.Parent = game:GetService("CoreGui")
 shared.ScreenGui2.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
 Array.Name = "Array"
