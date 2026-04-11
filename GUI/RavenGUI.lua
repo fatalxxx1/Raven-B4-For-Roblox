@@ -588,7 +588,6 @@ spawn(function()
     shared.TargetName.BorderSizePixel = 0
     shared.TargetName.Position = UDim2.new(0.165, 0, 0.0799998939, 0)
     shared.TargetName.Size = UDim2.new(0.432998955, 0, 0.449999988, 0)
-    shared.TargetName.FontFace = Font.new(getcustomasset("RavenB4/MCReg.json"))
     shared.TargetName.TextColor3 = Color3.fromRGB(255, 255, 255)
     shared.TargetName.TextSize = textsize
     shared.TargetName.TextWrapped = true
@@ -602,7 +601,7 @@ spawn(function()
     shared.TargetColor.BorderSizePixel = 0
     shared.TargetColor.Position = UDim2.new(0.0432427935, 0, 0.0800000802, 0)
     shared.TargetColor.Size = UDim2.new(0.083, 0, 0.449999988, 0)
-    shared.TargetColor.FontFace = Font.new(getcustomasset("RavenB4/MCBold.json"))
+ 
     shared.TargetColor.Text = "W"
     shared.TargetColor.TextColor3 = Color3.fromRGB(255, 255, 255)
     shared.TargetColor.TextSize = textsize
@@ -616,7 +615,7 @@ spawn(function()
     shared.TargetHealth.BorderSizePixel = 0
     shared.TargetHealth.Position = UDim2.new(0.660000026, 0, 0.0799999982, 0)
     shared.TargetHealth.Size = UDim2.new(0.193000004, 0, 0.449999988, 0)
-    shared.TargetHealth.FontFace = Font.new(getcustomasset("RavenB4/MCReg.json"))
+
     shared.TargetHealth.Text = "100"
     shared.TargetHealth.TextColor3 = Color3.fromRGB(77, 255, 1)
     shared.TargetHealth.TextSize = textsize
@@ -630,7 +629,7 @@ spawn(function()
     shared.TargetState.BorderSizePixel = 0
     shared.TargetState.Position = UDim2.new(0.839999974, 0, 0.0799999982, 0)
     shared.TargetState.Size = UDim2.new(0.118000001, 0, 0.449999988, 0)
-    shared.TargetState.FontFace = Font.new(getcustomasset("RavenB4/MCReg.json"))
+   
     shared.TargetState.Text = "W"
     shared.TargetState.TextColor3 = Color3.fromRGB(34, 255, 0)
     shared.TargetState.TextSize = textsize
@@ -717,7 +716,7 @@ function lib:CreateWindow(text, Position)
     TabName.BorderColor3 = Color3.fromRGB(0, 0, 0)
     TabName.BorderSizePixel = 0
     TabName.Size = UDim2.new(1, 0,0, sizingtable.TabFrame)
-    TabName.FontFace = Font.new(getcustomasset("RavenB4/MCReg.json"))
+   
     TabName.Text = text
     TabName.TextColor3 = Color3.fromRGB(255, 255, 255)
     TabName.TextSize = sizingtable.TabText
@@ -736,7 +735,7 @@ function lib:CreateWindow(text, Position)
     PlusMinusButton.BorderSizePixel = 0
     PlusMinusButton.Position = UDim2.new(0.799999988, 0, 0, -9)
     PlusMinusButton.Size = UDim2.new(0, sizingtable.PlusMinuesButtonSize, 0, sizingtable.PlusMinuesButtonSizeSecond)
-    PlusMinusButton.FontFace = Font.new(getcustomasset("RavenB4/MCReg.json"))
+
     PlusMinusButton.Text = "-"
     PlusMinusButton.TextColor3 = Color3.fromRGB(235, 39, 39)
     PlusMinusButton.TextSize = sizingtable.PlusMinuesButtonText
@@ -872,7 +871,7 @@ function lib:CreateWindow(text, Position)
         MainButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
         MainButton.BorderSizePixel = 0
         MainButton.Size = UDim2.new(1, 0, 0, sizingtable.MainButton)
-        MainButton.FontFace = Font.new(getcustomasset("RavenB4/MCReg.json"))
+       
         MainButton.Text = options.Name
         MainButton.TextColor3 = Color3.fromRGB(255, 255, 255)
         MainButton.TextSize = sizingtable.MainButtonText
@@ -911,7 +910,7 @@ function lib:CreateWindow(text, Position)
         BindText.BorderColor3 = Color3.fromRGB(0, 0, 0)
         BindText.BorderSizePixel = 0
         BindText.Size = UDim2.new(1, 0, 1,0)
-        BindText.FontFace = Font.new(getcustomasset("RavenB4/MCReg.json"))
+
         BindText.Text = "Current bind:"
         BindText.TextColor3 = Color3.fromRGB(10, 213, 236)
         BindText.TextSize = sizingtable.BindText
@@ -928,7 +927,7 @@ function lib:CreateWindow(text, Position)
         TextButton.BorderSizePixel = 0
         TextButton.Position = UDim2.new(sizingtable.BindButtonPOS, 0, 0, 0)
         TextButton.Size = UDim2.new(sizingtable.BindButtonSize, 0, 1,0)
-        TextButton.FontFace = Font.new(getcustomasset("RavenB4/MCReg.json"))
+    
         TextButton.Text = "\'NONE\'"
         TextButton.TextColor3 = Color3.fromRGB(255, 248, 34)
         TextButton.TextSize = sizingtable.BindText
@@ -944,14 +943,14 @@ function lib:CreateWindow(text, Position)
                 TextLabel.BorderSizePixel = 0
                 TextLabel.Position = UDim2.new(1, 0, 0, 0)
                 TextLabel.BackgroundTransparency = 1
-                TextLabel.FontFace = Font.new(getcustomasset("RavenB4/MCReg.json"))
+              
                 TextLabel.TextSize = 21
                 TextLabel.Text = Name.." "
                 TextLabel.TextColor3 = Color3.new(255,255,255)
                 TextLabel.Size = UDim2.new(0,0,0,0)
                 local params = Instance.new("GetTextBoundsParams")
                 params.Text = Name.." "
-                params.Font = Font.new(getcustomasset("RavenB4/MCReg.json"))
+     
                 params.Size = 25
                 local size = game:GetService("TextService"):GetTextBoundsAsync(params)
                 TextLabel.TextXAlignment = "Right"
@@ -964,7 +963,7 @@ function lib:CreateWindow(text, Position)
                 TextLabel2.BorderSizePixel = 0
                 TextLabel2.Position = UDim2.new(0, 0, 0, 0)
                 TextLabel2.BackgroundTransparency = 1
-                TextLabel2.FontFace = Font.new(getcustomasset("RavenB4/MCReg.json"))
+           
                 TextLabel2.TextSize = 21
                 TextLabel2.Text = Name.." "
                 TextLabel2.TextColor3 = Color3.new(255,255,255)
@@ -1141,7 +1140,7 @@ function lib:CreateWindow(text, Position)
             TextButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
             TextButton.BorderSizePixel = 0
             TextButton.Size = UDim2.new(1, 0, 0, 25)
-            TextButton.FontFace = Font.new(getcustomasset("RavenB4/MCReg.json"))
+      
             TextButton.TextColor3 = Color3.fromRGB(255, 255, 255)
             TextButton.TextSize = 14.000
             TextButton.TextXAlignment = Enum.TextXAlignment.Left
@@ -1203,7 +1202,7 @@ function lib:CreateWindow(text, Position)
                         local item2 = FindFirstDescendant(Array,OptionsName().."2")
                         local newitemname = options.DefaultOption .. " "
                         if item ~= nil and options.SecondArrayitem == true then
-                            params.Font = Font.new(getcustomasset("RavenB4/MCReg.json"))
+                   
                             params.Size = 18
                             params.Text = OptionsName().." "
                             local size = game:GetService("TextService"):GetTextBoundsAsync(params)
