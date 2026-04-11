@@ -116,10 +116,10 @@ function RavenB4:LoadModules()
     
     local success, result = pcall(function()
         if shared.devtesting then
-            API = loadstring(readfile(strings.api))()
+            -- API = loadstring(readfile(strings.api))()
             module = loadstring(readfile(strings.functions))()
         else
-            API = loadstring(game:HttpGet(strings.api))()
+            -- API = loadstring(game:HttpGet(strings.api))()
             module = loadstring(game:HttpGet(strings.functions))()
         end
     end)
