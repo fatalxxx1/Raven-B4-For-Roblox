@@ -751,7 +751,7 @@ function lib:CreateWindow(text, Position)
     TFStroke.Thickness = 2
     TFStroke.Color = Color3.new(255,255,255)
 
-    TFStrokeGrad.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(142, 132, 255)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(160, 193, 255))}
+    TFStrokeGrad.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(255, 255, 255)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(0, 0, 0))}
     TFStrokeGrad.Parent = TFStroke
 
     HolderFrame.Name = "HolderFrame"
@@ -829,43 +829,49 @@ function lib:CreateWindow(text, Position)
 
     function Toggles:CreateToggle(options)
         options = self:ravenb4({
-            Name = "Toggle",
-            Keybind = nil,
-            Animation = true,
-            Untoggle = false,
-            StartingState = false,
-            Callback = function() end
-        }, options)
-        local function OptionsName()
-            return options.Name
+        Name = "Toggle",
+        Keybind = nil,
+        Animation = true,
+        Untoggle = false,
+        StartingState = false,
+        Callback = function() end
+    }, options)
+    
+    local function OptionsName()
+        return options.Name
+    end
+    
+    if GUILoadSettings[options.Name] ~= nil then
+        if GUILoadSettings[options.Name].Value ~= nil then
+            options.StartingState = GUILoadSettings[options.Name].Value
         end
-        if GUILoadSettings[options.Name] ~= nil then
-            if GUILoadSettings[options.Name].Value ~= nil then
-                options.StartingState = GUILoadSettings[options.Name].Value
-            end
-            if GUILoadSettings[options.Name].Keybind ~= nil then
-                options.Keybind = Enum.KeyCode[GUILoadSettings[options.Name].Keybind]
-            end
+        if GUILoadSettings[options.Name].Keybind ~= nil then
+            options.Keybind = Enum.KeyCode[GUILoadSettings[options.Name].Keybind]
         end
-        GUISaveSettings[options.Name] = {}
-        GUISaveSettings[options.Name]["Value"] = options.StartingState
-        GUISaveSettings[options.Name]["Keybind"] = options.Keybind ~= nil and options.Keybind.Name or options.Keybind
+    end
+    GUISaveSettings[options.Name] = {}
+    GUISaveSettings[options.Name]["Value"] = options.StartingState
+    GUISaveSettings[options.Name]["Keybind"] = options.Keybind ~= nil and options.Keybind.Name or options.Keybind
 
-        local Toggle = {}
-        Toggle.Connections = {} -- Store event connections
-        table.insert(allToggles, Toggle)
-        local toggled = options.StartingState
-        local MainButton = Instance.new("TextButton")
-        local MiniHolderFrame = Instance.new("Frame")
-        local MiniHolderUIList = Instance.new("UIListLayout")
-        local Bind = Instance.new("Frame")
-        local BindText = Instance.new("TextLabel")
-        local BindTextPad = Instance.new("UIPadding")
-        local TextButton = Instance.new("TextButton")
-        local MainButtonCorner = Instance.new("UICorner")
-
-        do
-
+    local Toggle = {}
+    Toggle.Connections = {}
+    table.insert(allToggles, Toggle)
+    local toggled = options.StartingState
+    
+    local MainButton = Instance.new("TextButton")
+    local MiniHolderFrame = Instance.new("Frame")
+    local MiniHolderUIList = Instance.new("UIListLayout")
+    local Bind = Instance.new("Frame")
+    local BindText = Instance.new("TextLabel")
+    local BindTextPad = Instance.new("UIPadding")
+    local TextButton = Instance.new("TextButton")
+    local MainButtonCorner = Instance.new("UICorner")
+    
+    -- Create 3-dot button for mobile
+    local MenuButton = Instance.new("TextButton")
+    local isMobile = UIS.TouchEnabled
+    
+    do
         MainButton.Name = "MainButton"
         MainButton.Parent = HolderFrame
         MainButton.BackgroundColor3 = Color3.fromRGB(0,0,0)
@@ -877,10 +883,36 @@ function lib:CreateWindow(text, Position)
         MainButton.Text = options.Name
         MainButton.TextColor3 = Color3.fromRGB(255, 255, 255)
         MainButton.TextSize = sizingtable.MainButtonText
+        MainButton.TextXAlignment = Enum.TextXAlignment.Left
+        MainButton.TextWrapped = true
 
         MainButtonCorner.CornerRadius = UDim.new(0, 12)
         MainButtonCorner.Name = "TFCorner"
         MainButtonCorner.Parent = MainButton
+
+        -- Add padding for MainButton text
+        local MainButtonPadding = Instance.new("UIPadding")
+        MainButtonPadding.Parent = MainButton
+        MainButtonPadding.PaddingLeft = UDim.new(0, 10)
+
+        -- Create 3-dot menu button (visible on both mobile and PC for consistency)
+        MenuButton.Name = "MenuButton"
+        MenuButton.Parent = MainButton
+        MenuButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+        MenuButton.BackgroundTransparency = 0.9
+        MenuButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
+        MenuButton.BorderSizePixel = 0
+        MenuButton.Position = UDim2.new(1, -40, 0.5, -12)
+        MenuButton.Size = UDim2.new(0, 30, 0, 24)
+        MenuButton.Text = "⋮"
+        MenuButton.TextColor3 = Color3.fromRGB(200, 200, 200)
+        MenuButton.TextSize = isMobile and 20 or 18
+        MenuButton.TextWrapped = true
+        MenuButton.AutoButtonColor = false
+        
+        local MenuButtonCorner = Instance.new("UICorner")
+        MenuButtonCorner.CornerRadius = UDim.new(0, 6)
+        MenuButtonCorner.Parent = MenuButton
 
         MiniHolderFrame.Name = "MiniHolderFrame"
         MiniHolderFrame.Parent = HolderFrame
@@ -902,7 +934,7 @@ function lib:CreateWindow(text, Position)
         Bind.BackgroundTransparency = 1.000
         Bind.BorderColor3 = Color3.fromRGB(0, 0, 0)
         Bind.BorderSizePixel = 0
-        Bind.Size = UDim2.new(1, 0, 0,sizingtable.BindSize)
+        Bind.Size = UDim2.new(1, 0, 0, sizingtable.BindSize)
         Bind.Visible = false
 
         BindText.Name = "BindText"
@@ -911,7 +943,7 @@ function lib:CreateWindow(text, Position)
         BindText.BackgroundTransparency = 1.000
         BindText.BorderColor3 = Color3.fromRGB(0, 0, 0)
         BindText.BorderSizePixel = 0
-        BindText.Size = UDim2.new(1, 0, 1,0)
+        BindText.Size = UDim2.new(1, 0, 1, 0)
 
         BindText.Text = "Current bind:"
         BindText.TextColor3 = Color3.fromRGB(10, 213, 236)
@@ -928,13 +960,27 @@ function lib:CreateWindow(text, Position)
         TextButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
         TextButton.BorderSizePixel = 0
         TextButton.Position = UDim2.new(sizingtable.BindButtonPOS, 0, 0, 0)
-        TextButton.Size = UDim2.new(sizingtable.BindButtonSize, 0, 1,0)
+        TextButton.Size = UDim2.new(sizingtable.BindButtonSize, 0, 1, 0)
     
-        TextButton.Text = "\'NONE\'"
+        TextButton.Text = "'NONE'"
         TextButton.TextColor3 = Color3.fromRGB(255, 248, 34)
         TextButton.TextSize = sizingtable.BindText
         TextButton.TextXAlignment = Enum.TextXAlignment.Left
-            RavenArraylist = {
+        
+        -- Hover effects for MenuButton (PC only)
+        if not isMobile then
+            Toggle.Connections[#Toggle.Connections + 1] = MenuButton.MouseEnter:Connect(function()
+                TweenService:Create(MenuButton, TweenInfo.new(0.2, Enum.EasingStyle.Quad), {BackgroundTransparency = 0.7}):Play()
+                MenuButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+            end)
+            
+            Toggle.Connections[#Toggle.Connections + 1] = MenuButton.MouseLeave:Connect(function()
+                TweenService:Create(MenuButton, TweenInfo.new(0.2, Enum.EasingStyle.Quad), {BackgroundTransparency = 0.9}):Play()
+                MenuButton.TextColor3 = Color3.fromRGB(200, 200, 200)
+            end)
+        end
+
+        RavenArraylist = {
             Add = function(Name)
                 local TextLabel = Instance.new("TextLabel",Array)
                 local TextLabel2 = Instance.new("TextLabel",TextLabel)
@@ -983,113 +1029,127 @@ function lib:CreateWindow(text, Position)
                 end
             end,
         }
-            local function toggle()
-                toggled = not toggled
-                if toggled then
-                    MainButton.TextColor3 = Color3.fromRGB(44, 128, 255)
-                    RavenArraylist.Remove(options.Name)
-                    RavenArraylist.Add(options.Name)
-                    if ModuleNotification and options.Animation ~= false then
-                        shared:createnotification(tostring(options.Name .. ' has been <font color="#00ff00">enabled</font>'), 0.5, "Module Toggled", 0.2)
-                    end
-                else
-                    MainButton.TextColor3 = Color3.fromRGB(255, 255, 255)
-                    RavenArraylist.Remove(options.Name)
-                    if ModuleNotification and options.Animation ~= false then
-                        if options.Untoggle ~= true then
-                            shared:createnotification(tostring(options.Name .. ' has been <font color="#ff0000">disabled</font>'), 0.5, "Module Toggled", 0.2)
-                        end
-                    end
+        
+        local function toggle()
+            toggled = not toggled
+            if toggled then
+                MainButton.TextColor3 = Color3.fromRGB(44, 128, 255)
+                RavenArraylist.Remove(options.Name)
+                RavenArraylist.Add(options.Name)
+                if ModuleNotification and options.Animation ~= false then
+                    shared:createnotification(tostring(options.Name .. ' has been <font color="#00ff00">enabled</font>'), 0.5, "Module Toggled", 0.2)
                 end
-                if GUISaveSettings[options.Name] ~= nil then
-                    GUISaveSettings[options.Name].Value = toggled
-                else
-                    print("Toggle Save doesn't seem to function!")
-                end
-                saveSettings() -- Save settings on toggle change
-                options.Callback(toggled)
-            end
-
-            Toggle.Connections[#Toggle.Connections + 1] = MainButton.MouseButton1Click:Connect(function()
-                toggle()
-                if options.Untoggle == true then
-                    toggle()
-                end
-            end)
-            Toggle.Connections[#Toggle.Connections + 1] = MainButton.MouseButton2Click:Connect(function()
-                MiniHolderFrame.Visible = not MiniHolderFrame.Visible
-                Bind.Visible = not Bind.Visible
-            end)
-            Toggle.Connections[#Toggle.Connections + 1] = MainButton.MouseEnter:Connect(function()
-                MainButton.BackgroundTransparency = 0.7
-            end)
-            Toggle.Connections[#Toggle.Connections + 1] = MainButton.MouseLeave:Connect(function()
-                MainButton.BackgroundTransparency = 1
-            end)
-
-            function Toggle:SetState(state)
-                toggled = state
-                if toggled then
-                    MainButton.TextColor3 = Color3.fromRGB(44, 128, 255)
-                    RavenArraylist.Add(options.Name)
-                    if ModuleNotification and options.Animation ~= false then
-                        shared:createnotification(tostring(options.Name .. ' has been <font color="#00ff00">enabled</font>'), 0.5, "Module Toggled", 0.2)
-                    end
-                else
-                    MainButton.TextColor3 = Color3.fromRGB(255, 255, 255)
-                    RavenArraylist.Remove(options.Name)
-                    if ModuleNotification and options.Animation ~= false and options.Untoggle ~= true then
+            else
+                MainButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+                RavenArraylist.Remove(options.Name)
+                if ModuleNotification and options.Animation ~= false then
+                    if options.Untoggle ~= true then
                         shared:createnotification(tostring(options.Name .. ' has been <font color="#ff0000">disabled</font>'), 0.5, "Module Toggled", 0.2)
                     end
                 end
-                GUISaveSettings[options.Name].Value = toggled
-                task.spawn(function() options.Callback(toggled) end)
             end
+            if GUISaveSettings[options.Name] ~= nil then
+                GUISaveSettings[options.Name].Value = toggled
+            else
+                print("Toggle Save doesn't seem to function!")
+            end
+            saveSettings()
+            options.Callback(toggled)
+        end
 
-            if options.StartingState then Toggle:SetState(true) end
-            local listening = false
-            Toggle.Connections[#Toggle.Connections + 1] = UIS.InputBegan:Connect(function(key)
-                --if not shared.Injected then return end -- Prevent keybinds post-uninjection
-                if listening and not UIS:GetFocusedTextBox() then
-                    if key.UserInputType == Enum.UserInputType.Keyboard then
-                        if key.KeyCode ~= Enum.KeyCode.Escape then
-                            if key.KeyCode ~= Enum.KeyCode.Backspace then
-                                options.Keybind = key.KeyCode
-                            else
-                                options.Keybind = nil
-                            end
-                            GUISaveSettings[options.Name].Keybind = options.Keybind ~= nil and options.Keybind.Name or nil
-                            saveSettings()
+        -- Main button click (toggle)
+        Toggle.Connections[#Toggle.Connections + 1] = MainButton.MouseButton1Click:Connect(function()
+            toggle()
+            if options.Untoggle == true then
+                toggle()
+            end
+        end)
+
+        -- Menu button click (opens settings - replaces right-click)
+        local menuOpen = false
+        Toggle.Connections[#Toggle.Connections + 1] = MenuButton.MouseButton1Click:Connect(function()
+            menuOpen = not menuOpen
+            MiniHolderFrame.Visible = menuOpen
+            Bind.Visible = menuOpen
+            
+            -- Animate menu button when clicked
+            TweenService:Create(MenuButton, TweenInfo.new(0.1, Enum.EasingStyle.Quad), {TextColor3 = Color3.fromRGB(44, 128, 255)}):Play()
+            task.wait(0.1)
+            TweenService:Create(MenuButton, TweenInfo.new(0.1, Enum.EasingStyle.Quad), {TextColor3 = Color3.fromRGB(200, 200, 200)}):Play()
+        end)
+
+        Toggle.Connections[#Toggle.Connections + 1] = MainButton.MouseEnter:Connect(function()
+            MainButton.BackgroundTransparency = 0.7
+        end)
+        
+        Toggle.Connections[#Toggle.Connections + 1] = MainButton.MouseLeave:Connect(function()
+            MainButton.BackgroundTransparency = 1
+        end)
+
+        function Toggle:SetState(state)
+            toggled = state
+            if toggled then
+                MainButton.TextColor3 = Color3.fromRGB(44, 128, 255)
+                RavenArraylist.Add(options.Name)
+                if ModuleNotification and options.Animation ~= false then
+                    shared:createnotification(tostring(options.Name .. ' has been <font color="#00ff00">enabled</font>'), 0.5, "Module Toggled", 0.2)
+                end
+            else
+                MainButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+                RavenArraylist.Remove(options.Name)
+                if ModuleNotification and options.Animation ~= false and options.Untoggle ~= true then
+                    shared:createnotification(tostring(options.Name .. ' has been <font color="#ff0000">disabled</font>'), 0.5, "Module Toggled", 0.2)
+                end
+            end
+            GUISaveSettings[options.Name].Value = toggled
+            task.spawn(function() options.Callback(toggled) end)
+        end
+
+        if options.StartingState then Toggle:SetState(true) end
+        
+        local listening = false
+        Toggle.Connections[#Toggle.Connections + 1] = UIS.InputBegan:Connect(function(key)
+            if listening and not UIS:GetFocusedTextBox() then
+                if key.UserInputType == Enum.UserInputType.Keyboard then
+                    if key.KeyCode ~= Enum.KeyCode.Escape then
+                        if key.KeyCode ~= Enum.KeyCode.Backspace then
+                            options.Keybind = key.KeyCode
+                        else
+                            options.Keybind = nil
                         end
-                        TextButton.Text = options.Keybind and tostring("\'"..tostring(options.Keybind.Name):upper().."\'") or "\'NONE\'"
-                        BindText.Text = "Current bind:"
-                        listening = false
+                        GUISaveSettings[options.Name].Keybind = options.Keybind ~= nil and options.Keybind.Name or nil
+                        saveSettings()
                     end
-                else
-                    if key.KeyCode == options.Keybind and not UIS:GetFocusedTextBox() then
+                    TextButton.Text = options.Keybind and tostring("'"..tostring(options.Keybind.Name):upper().."'") or "'NONE'"
+                    BindText.Text = "Current bind:"
+                    listening = false
+                end
+            else
+                if key.KeyCode == options.Keybind and not UIS:GetFocusedTextBox() then
+                    toggle()
+                    if options.Untoggle == true then
                         toggle()
-                        if options.Untoggle == true then
-                            toggle()
-                        end
                     end
                 end
-            end)
+            end
+        end)
 
-            Toggle.Connections[#Toggle.Connections + 1] = TextButton.MouseButton1Click:Connect(function()
-                if not listening then
-                    listening = true
-                    BindText.Text = "Press a key..."
-                    TextButton.Text = ""
-                end
-            end)
-        end
+        Toggle.Connections[#Toggle.Connections + 1] = TextButton.MouseButton1Click:Connect(function()
+            if not listening then
+                listening = true
+                BindText.Text = "Press a key..."
+                TextButton.Text = ""
+            end
+        end)
+    end
 
-        function Toggle:Set(keycode)
-            TextButton.Text = keycode and tostring("\'"..tostring(keycode.Name):upper().."\'") or "\'NONE\'"
-        end
-        if options.Keybind ~= nil then
-            Toggle:Set(options.Keybind)
-        end
+    function Toggle:Set(keycode)
+        TextButton.Text = keycode and tostring("'"..tostring(keycode.Name):upper().."'") or "'NONE'"
+    end
+    
+    if options.Keybind ~= nil then
+        Toggle:Set(options.Keybind)
+    end
         function Toggle:ravenb4(defaults, options)
             defaults = defaults or {}
             options = options or {}
