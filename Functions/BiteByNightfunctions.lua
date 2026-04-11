@@ -28,3 +28,6 @@ end
 
 
 
+return {
+    LoopManager = LoopManager,
+}
