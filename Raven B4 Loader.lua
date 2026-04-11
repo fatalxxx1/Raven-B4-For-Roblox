@@ -12,9 +12,9 @@ RavenB4.__index = RavenB4
 
 function RavenB4.new()
     local self = setmetatable({}, RavenB4)
-    self.ConfigPath = "RavenB4/Config"
-    self.LoadFontPath = "RavenB4"
-    self.FontPath = "RavenB4/Font"
+    self.ConfigPath = "RavenD4/Config"
+    self.LoadFontPath = "RavenD4"
+    self.FontPath = "RavenD4/Font"
     self.GameName = ""
     self.ConfigName = "Default Config"
     self.SupportedGames = {
