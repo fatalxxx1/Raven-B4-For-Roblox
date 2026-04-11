@@ -40,3 +40,7 @@ AutoGen = Legit:CreateToggle({
     end
 
 })
+
+if shared.RavenB4Started == nil then
+	shared.RavenB4Completed = true
+end
