@@ -1230,7 +1230,7 @@ function lib:CreateWindow(text, Position)
             Info.BorderColor3 = Color3.fromRGB(0, 0, 0)
             Info.BorderSizePixel = 0
             Info.Size = UDim2.new(1, 0, 0, sizingtable.InfoSize)
-            Info.FontFace = Font.new(getcustomasset("RavenB4/MCReg.json"))
+           
             Info.Text = text
             Info.TextColor3 = Color3.fromRGB(0, 174, 255)
             Info.TextSize = sizingtable.InfoText
@@ -1294,7 +1294,7 @@ function lib:CreateWindow(text, Position)
             SliderButton.BorderSizePixel = 0
             SliderButton.Position = UDim2.new(0.0500000007, 0, 0.600000024, 0)
             SliderButton.Size = UDim2.new(0.899999976, 0, 0.300000003, 0)
-            SliderButton.FontFace = Font.new(getcustomasset("RavenB4/MCReg.json"))
+          
             SliderButton.Text = ""
             SliderButton.TextColor3 = Color3.fromRGB(0, 0, 0)
             SliderButton.TextSize = sizingtable.SliderText
@@ -1320,7 +1320,7 @@ function lib:CreateWindow(text, Position)
             SliderName.BorderColor3 = Color3.fromRGB(0, 0, 0)
             SliderName.BorderSizePixel = 0
             SliderName.Size = UDim2.new(0.486000001, 0, 0, 15)
-            SliderName.FontFace = Font.new(getcustomasset("RavenB4/MCReg.json"))
+            
             SliderName.TextColor3 = Color3.fromRGB(255, 255, 255)
             SliderName.TextSize = sizingtable.SliderValueText
             SliderName.TextWrapped = true
@@ -1339,7 +1339,7 @@ function lib:CreateWindow(text, Position)
             SliderValue.BorderSizePixel = 0
             SliderValue.Position = UDim2.new(0.571428537, 0, 0, 0)
             SliderValue.Size = UDim2.new(0.42900002, 0, 0, 15)
-            SliderValue.FontFace = Font.new(getcustomasset("RavenB4/MCReg.json"))
+          
             SliderValue.Text = options.Default
             SliderValue.TextColor3 = Color3.fromRGB(255, 255, 255)
             SliderValue.TextSize = sizingtable.SliderValueText
@@ -1461,7 +1461,7 @@ function lib:CreateWindow(text, Position)
             MiniButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
             MiniButton.BorderSizePixel = 0
             MiniButton.Size = UDim2.new(1, 0, 0, sizingtable.Minibutton)
-            MiniButton.FontFace = Font.new(getcustomasset("RavenB4/MCReg.json"))
+         
             MiniButton.Text = "[-]"
             MiniButton.TextColor3 = Color3.fromRGB(255, 255, 255)
             MiniButton.TextSize = sizingtable.MinibuttonText
@@ -1478,7 +1478,7 @@ function lib:CreateWindow(text, Position)
             MiniButtonText.BorderSizePixel = 0
             MiniButtonText.Size = UDim2.new(1, 0, 1, 0)
             MiniButtonText.Font = Enum.Font.Fantasy
-            MiniButtonText.FontFace = Font.new(getcustomasset("RavenB4/MCReg.json"))
+          
             MiniButtonText.TextColor3 = Color3.fromRGB(255, 255, 255)
             MiniButtonText.TextSize = 14.000
             MiniButtonText.TextXAlignment = Enum.TextXAlignment.Left
@@ -1624,7 +1624,6 @@ B4Letter.BackgroundTransparency = 1.000
 B4Letter.BorderColor3 = Color3.fromRGB(0, 0, 0)
 B4Letter.BorderSizePixel = 0
 B4Letter.Size = UDim2.new(1, 0, 1, 0)
-B4Letter.FontFace = Font.new(getcustomasset("RavenB4/MCReg.json"))
 B4Letter.Text = "B4"
 B4Letter.TextColor3 = Color3.fromRGB(255,255,255)
 B4Letter.TextSize = textsize
@@ -1645,7 +1644,7 @@ RLetter.BackgroundTransparency = 1.000
 RLetter.BorderColor3 = Color3.fromRGB(0, 0, 0)
 RLetter.BorderSizePixel = 0
 RLetter.Size = UDim2.new(1, 0,textboxsize , 0)
-RLetter.FontFace = Font.new(getcustomasset("RavenB4/MCReg.json"))
+
 RLetter.Text = "r"
 RLetter.TextColor3 = Color3.fromRGB(255,255,255)
 RLetter.TextSize = textsize
@@ -1658,7 +1657,7 @@ ALetter.BorderColor3 = Color3.fromRGB(0, 0, 0)
 ALetter.BorderSizePixel = 0
 ALetter.Position = UDim2.new(0, 0, textboxsize, 0)
 ALetter.Size = UDim2.new(1, 0, textboxsize, 0)
-ALetter.FontFace = Font.new(getcustomasset("RavenB4/MCReg.json"))
+
 ALetter.Text = "a"
 ALetter.TextColor3 = Color3.fromRGB(255,255,255)
 ALetter.TextSize = textsize
@@ -1671,7 +1670,7 @@ VLetter.BorderColor3 = Color3.fromRGB(0, 0, 0)
 VLetter.BorderSizePixel = 0
 VLetter.Position = UDim2.new(0, 0, textboxsize*2, 0)
 VLetter.Size = UDim2.new(1, 0, textboxsize, 0)
-VLetter.FontFace = Font.new(getcustomasset("RavenB4/MCReg.json"))
+
 VLetter.Text = "v"
 VLetter.TextColor3 = Color3.fromRGB(255,255,255)
 VLetter.TextSize = textsize
@@ -1684,7 +1683,7 @@ ELetter.BorderColor3 = Color3.fromRGB(0, 0, 0)
 ELetter.BorderSizePixel = 0
 ELetter.Position = UDim2.new(0, 0, textboxsize*3, 0)
 ELetter.Size = UDim2.new(1, 0, textboxsize, 0)
-ELetter.FontFace = Font.new(getcustomasset("RavenB4/MCReg.json"))
+
 ELetter.Text = "e"
 ELetter.TextColor3 = Color3.fromRGB(255,255,255)
 ELetter.TextSize = textsize
@@ -1697,7 +1696,7 @@ NLetter.BorderColor3 = Color3.fromRGB(0, 0, 0)
 NLetter.BorderSizePixel = 0
 NLetter.Position = UDim2.new(0, 0, textboxsize*4, 0)
 NLetter.Size = UDim2.new(1, 0, textboxsize, 0)
-NLetter.FontFace = Font.new(getcustomasset("RavenB4/MCReg.json"))
+
 NLetter.Text = "n"
 NLetter.TextColor3 = Color3.fromRGB(255,255,255)
 NLetter.TextSize = textsize
