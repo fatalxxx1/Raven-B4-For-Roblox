@@ -156,7 +156,7 @@ function RavenB4:Initialize()
 
     if self:DetectGame() then
         print("see what could happen here")
-        shared.RavenConfigName = "RavenB4/Config/" .. self.ConfigName
+        shared.RavenConfigName = "RavenD4/Config/" .. self.ConfigName
         shared.RavenB4Injected = true
         return self:LoadModules()
     end
