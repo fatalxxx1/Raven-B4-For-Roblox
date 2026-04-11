@@ -131,11 +131,11 @@ function RavenB4:LoadModules()
     
     if shared.devtesting then
         lib = loadstring(readfile(strings.gui))()
-        buttons = loadstring(readfile(strings.buttons))()
+        -- buttons = loadstring(readfile(strings.buttons))()
         loadstring(readfile(strings.games))()
     else
         lib = loadstring(game:HttpGet(strings.gui))()
-        buttons = loadstring(game:HttpGet(strings.buttons))()
+        -- buttons = loadstring(game:HttpGet(strings.buttons))()
         loadstring(game:HttpGet(strings.games))()
     end
     
