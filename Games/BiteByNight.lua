@@ -7,7 +7,7 @@ local PlayerGui = LocalPlayer.PlayerGui
 
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
-local loop = LoopManager().new
+local loop = LoopManager.new()
 
 AutoGen = Legit:CreateToggle({
     Name = "Auto Gen",
