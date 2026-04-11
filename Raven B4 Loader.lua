@@ -40,49 +40,49 @@ function RavenB4:CheckExecutorSupport()
 end
 
 function RavenB4:SetupDirectories()
-    if not isfolder(self.FontPath) then
-        makefolder(self.FontPath)
-    end
+    -- if not isfolder(self.FontPath) then
+    --     makefolder(self.FontPath)
+    -- end
     if not isfolder(self.ConfigPath) then
         makefolder(self.ConfigPath)
     end
 end
 
-function RavenB4:DownloadFonts()
-    local fonts = {
-        {name = "MCBold", url = BASE_URL .. "MCBold.otf", config = "MCBold.json"},
-        {name = "MCReg", url = BASE_URL .. "MCReg.otf", config = "MCReg.json"}
-    }
+-- function RavenB4:DownloadFonts()
+--     local fonts = {
+--         {name = "MCBold", url = BASE_URL .. "MCBold.otf", config = "MCBold.json"},
+--         {name = "MCReg", url = BASE_URL .. "MCReg.otf", config = "MCReg.json"}
+--     }
 
-    for _, font in ipairs(fonts) do
-        local success, response = pcall(function()
-            return HttpRequest({
-                Url = font.url,
-                Method = "GET"
-            }).Body
-        end)
+--     for _, font in ipairs(fonts) do
+--         local success, response = pcall(function()
+--             return HttpRequest({
+--                 Url = font.url,
+--                 Method = "GET"
+--             }).Body
+--         end)
 
-        if success then
-            writefile(self.FontPath .. "/" .. font.name .. ".otf", response)
-            self:WriteFontConfig(font.name, font.config)
-        else
-            print("Failed to download " .. font.name .. " font")
-        end
-    end
-end
+--         if success then
+--             writefile(self.FontPath .. "/" .. font.name .. ".otf", response)
+--             self:WriteFontConfig(font.name, font.config)
+--         else
+--             print("Failed to download " .. font.name .. " font")
+--         end
+--     end
+-- end
 
-function RavenB4:WriteFontConfig(fontName, configFile)
-    local config = {
-        name = "Minecraft",
-        faces = {{
-            name = fontName == "MCBold" and "Bold" or "Regular",
-            weight = 500,
-            style = "normal",
-            assetId = getcustomasset(self.FontPath .. "/" .. fontName .. ".otf")
-        }}
-    }
-    writefile(self.LoadFontPath .. "/" .. configFile, HttpService:JSONEncode(config))
-end
+-- function RavenB4:WriteFontConfig(fontName, configFile)
+--     local config = {
+--         name = "Minecraft",
+--         faces = {{
+--             name = fontName == "MCBold" and "Bold" or "Regular",
+--             weight = 500,
+--             style = "normal",
+--             assetId = getcustomasset(self.FontPath .. "/" .. fontName .. ".otf")
+--         }}
+--     }
+--     writefile(self.LoadFontPath .. "/" .. configFile, HttpService:JSONEncode(config))
+-- end
 
 function RavenB4:DetectGame()
     for gameName, placeIds in pairs(self.SupportedGames) do
