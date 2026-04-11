@@ -101,9 +101,9 @@ local MinimumTabletSize = Vector2.new(1024, 768)
 
 -- Device type check
 function CheckDeviceType()
-    --[[if Mouse.ViewSizeX >= MinimumTabletSize.X and Mouse.ViewSizeY >= MinimumTabletSize.Y and UIS.MouseEnabled and UIS.KeyboardEnabled then
+    if Mouse.ViewSizeX >= MinimumTabletSize.X and Mouse.ViewSizeY >= MinimumTabletSize.Y and UIS.MouseEnabled and UIS.KeyboardEnabled then
         return "Mobile"
-    end]]
+    end
     return "Computer"
 end
 
