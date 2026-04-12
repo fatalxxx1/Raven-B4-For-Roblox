@@ -1,3 +1,5 @@
+local RunService = game:GetService("RunService")
+
 local LoopManager = {}
 LoopManager.__index = LoopManager
 
