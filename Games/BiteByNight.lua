@@ -43,6 +43,7 @@ AutoGen = Legit:CreateToggle({
 
 })
 
+AutoGen:CreateInfo("Auto Fix Generator.")
 if shared.RavenB4Started == nil then
 	shared.RavenB4Completed = true
 end
