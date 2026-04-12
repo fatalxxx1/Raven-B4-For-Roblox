@@ -1687,7 +1687,7 @@ B4Letter.BackgroundTransparency = 1.000
 B4Letter.BorderColor3 = Color3.fromRGB(0, 0, 0)
 B4Letter.BorderSizePixel = 0
 B4Letter.Size = UDim2.new(1, 0, 1, 0)
-B4Letter.Text = "B4"
+B4Letter.Text = "D4"
 B4Letter.TextColor3 = Color3.fromRGB(255,255,255)
 B4Letter.TextSize = textsize
 
