@@ -2031,7 +2031,7 @@ local function CreateCape()
     Motor.Name = "Motor"
     Motor.C0 = CFrame.new(0, 2, 0, -4.37113883e-08, 0, 1, 0, 1, 0, -1, 0, -4.37113883e-08)
     Motor.C1 = CFrame.new(0, 1, 0.449999988, -4.37113883e-08, 0, 1, 0, 1, 0, -1, 0, -4.37113883e-08)
-    Motor.Part1 = LocalPlayer.Character.UpperTorso
+    Motor.Part1 = LocalPlayer.Character.UpperTorso or LocalPlayer.Character.Torso
     Motor.Part0 = Cape
     Motor.CurrentAngle = -0.16208772361278534
     Motor.DesiredAngle = -0.1002269834280014
