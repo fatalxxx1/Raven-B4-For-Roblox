@@ -620,7 +620,7 @@ spawn(function()
     shared.TargetHealth.Size = UDim2.new(0.193000004, 0, 0.449999988, 0)
 
     shared.TargetHealth.Text = "100"
-    shared.TargetHealth.TextColor3 = Color3.fromRGB(77, 255, 1)
+    shared.TargetHealth.TextColor3 = Color3.fromRGB(255, 255, 255)
     shared.TargetHealth.TextSize = textsize
     shared.TargetHealth.TextWrapped = true
 
