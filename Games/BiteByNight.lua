@@ -1,4 +1,4 @@
-
+local LoopManager = module.LoopManager
 
 
 local Players = game:GetService('Players')
@@ -6,6 +6,8 @@ local LocalPlayer = Players.LocalPlayer
 local PlayerGui = LocalPlayer.PlayerGui
 
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
+
+
 
 local loop = LoopManager.new()
 
