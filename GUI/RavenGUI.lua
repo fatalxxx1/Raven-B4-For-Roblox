@@ -2097,10 +2097,10 @@ Client:CreateToggle({
         until not RavenCape
 end})
 
-getgenv().Image = "rbxassetid://0"; -- put a asset id in here to make it work
+local Image = "rbxassetid://0"; 
 
-task.spawn(function()
-    if not getgenv().LoadedMobileUI == true then getgenv().LoadedMobileUI = true
+
+   
         local OpenUI = Instance.new("ScreenGui");
         local ImageButton = Instance.new("ImageButton");
         local UICorner = Instance.new("UICorner");
@@ -2112,7 +2112,7 @@ task.spawn(function()
         ImageButton.BackgroundTransparency = 0.8
         ImageButton.Position = UDim2.new(0.9,0,0.1,0);
         ImageButton.Size = UDim2.new(0,50,0,50);
-        ImageButton.Image = getgenv().Image;
+        ImageButton.Image = Image;
         ImageButton.Draggable = true;
         ImageButton.Transparency = 1;
         UICorner.CornerRadius = UDim.new(0,200);
@@ -2120,7 +2120,7 @@ task.spawn(function()
         ImageButton.MouseButton1Click:Connect(function()
             lib:ToggleLib()
         end)
-    end
-end)
+    
+
 
 return lib
