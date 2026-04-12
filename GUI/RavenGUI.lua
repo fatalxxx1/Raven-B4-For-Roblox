@@ -11,16 +11,17 @@ Category: GUI
 ]]
 
 shared.listthemes = {
-    ["Rainbow"] = { 0, 360 },
-    ["Cotton Candy"] = { 250, 310 },
-    ["Ocean"] = { 180, 240 }, -- Cyan to blue
-    ["Sunset"] = { 0, 60 }, -- Red to orange
-    ["Lime Glow"] = { 120, 180 }, -- Green to cyan
-    ["Purple Berry"] = { 270, 330 }, -- Purple to magenta
-    ["Forest"] = { 90, 150 }, -- Green to yellow-green
-    ["Desert"] = { 30, 90 }, -- Yellow to orange-yellow
-    ["Galaxy"] = { 240, 300 }, -- Blue to purple
-    ["Berry"] = { 330, 360 } -- Magenta to red
+	["Monochrome"] = { 0, 0 },
+    -- ["Rainbow"] = { 0, 360 },
+    -- ["Cotton Candy"] = { 250, 310 },
+    -- ["Ocean"] = { 180, 240 }, -- Cyan to blue
+    -- ["Sunset"] = { 0, 60 }, -- Red to orange
+    -- ["Lime Glow"] = { 120, 180 }, -- Green to cyan
+    -- ["Purple Berry"] = { 270, 330 }, -- Purple to magenta
+    -- ["Forest"] = { 90, 150 }, -- Green to yellow-green
+    -- ["Desert"] = { 30, 90 }, -- Yellow to orange-yellow
+    -- ["Galaxy"] = { 240, 300 }, -- Blue to purple
+    -- ["Berry"] = { 330, 360 } -- Magenta to red
 }
 
 shared.FileName = shared.RavenConfigName ~= nil and shared.RavenConfigName or 'Default Config'
@@ -156,7 +157,7 @@ else
 end
 
 -- Theme and animation logic
-local usedtheme = "Cotton Candy"
+local usedtheme = "Monochrome"
 local changefactor = false
 local Converterdlist = {}
 local Usedlist = {}
